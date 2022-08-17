@@ -10,7 +10,7 @@ call plug#end()
 
 let mapleader="\<Space>"
 
-" Tab config
+" Tab configuration
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -22,7 +22,10 @@ set autochdir
 " Paragraph formatter
 let &formatprg="par -w80"
 
-" Change colorscheme
+" Spelling
+set spell spelllang=ru,en
+
+" Change color scheme
 set background=dark
 colorscheme molokai
 
@@ -30,7 +33,11 @@ colorscheme molokai
 set colorcolumn=80,120
 highlight ColorColumn ctermbg=8 guibg=lightgrey
 
-" Autoreload file if changed outside Vim
+" Disable swapfiles
+set noswapfile
+set backupdir=/tmp//
+
+" Auto reload file if changed outside Vim
 set autoread
 au CursorHold,CursorHoldI * checktime
 au FocusGained,BufEnter * :checktime
@@ -55,24 +62,24 @@ au InsertEnter * set number norelativenumber
 au InsertLeave * set relativenumber
 
 " Remap splits shortcuts
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
 
 " Better splits keybindings
 nmap <leader>s  <ESC>:vsplit<CR>
 nmap <leader>vs <ESC>:split<CR>
 
-" NERDCommenter config
+" NERDCommenter configuration
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 0
 let g:NERDTrimTrailingWhitespace = 1
 
 " NERDCommenter shortcuts
-nmap <C-k> <leader>c<space>
-vmap <C-k> <leader>c<space>
+nmap <leader>k <leader>c<space>
+vmap <leader>k <leader>c<space>
 
 " Copy to system clipboard
 nmap <leader>y "+y
