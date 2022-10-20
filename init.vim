@@ -8,7 +8,7 @@ set rtp+=$VIMHOME
 call plug#begin("$VIMHOME/plugins")
 Plug 'preservim/nerdcommenter'
 Plug 'itchyny/lightline.vim'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -44,6 +44,9 @@ nmap <Leader>f :retab <bar> TrimWhitespace<CR>
 
 " Automatically change current directory to be the same as the file editing
 set autochdir
+
+" Remove conceal for all files
+set conceallevel=0
 
 " Paragraph formatter
 let &formatprg="par -w80"

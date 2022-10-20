@@ -1,6 +1,341 @@
 {
+  "begin": {
+    "description": "LaTeX Begin environment",
+    "prefix": ["begin"],
+    "body": [
+      "\\begin{$1}",
+      "  $0",
+      "\\end{$1}"
+    ]
+  },
+  "definition": {
+    "description": "Insert definition environment",
+    "prefix": ["def"],
+    "body": [
+      "\\begin{definition}",
+      "  $0",
+      "\\end{definition}"
+    ]
+  },
+  "theorem": {
+    "description": "Insert theorem environment",
+    "prefix": ["theorem"],
+    "body": [
+      "\\begin{theorem}",
+      "  $0",
+      "\\end{theorem}"
+    ]
+  },
+  "proof": {
+    "description": "Insert proof environment",
+    "prefix": ["proof"],
+    "body": [
+      "\\begin{proof}",
+      "  $0",
+      "\\end{proof}"
+    ]
+  },
+  "equation": {
+    "description": "Insert equation environment",
+    "prefix": ["eq"],
+    "body": [
+      "\\begin{equation}",
+      "  $0",
+      "\\end{equation}"
+    ]
+  },
+  "equation*": {
+    "description": "Insert equation* environment",
+    "prefix": ["eq*"],
+    "body": [
+      "\\begin{equation*}",
+      "  $0",
+      "\\end{equation*}"
+    ]
+  },
+  "align": {
+    "prefix": "align",
+    "body": [
+      "\\begin{align}",
+      "  $0",
+      "\\end{align}"
+    ],
+    "description": "align environment"
+  },
+  "align*": {
+    "prefix": "align*",
+    "body": [
+      "\\begin{align*}",
+      "  $0",
+      "\\end{align*}"
+    ],
+    "description": "align* environment"
+  },
+  "itemize": {
+    "description": "Insert itemize environment",
+    "prefix": ["item"],
+    "body": [
+      "\\begin{itemize}",
+      "  \\item",
+      "\\end{itemize}"
+    ]
+  },
+  "enumerate": {
+    "description": "Insert enumerate environment",
+    "prefix": ["enum"],
+    "body": [
+      "\\begin{enumerate}",
+      "  \\item",
+      "\\end{enumerate}"
+    ]
+  },
+  "subscript": {
+    "description": "Insert multicharacter subscript",
+    "prefix": [" _"],
+    "body": "_{$1}$0"
+  },
+  "superscript": {
+    "description": "Insert multicharacter superscript",
+    "prefix": [" ^"],
+    "body": "^{$1}$0"
+  },
+  "Figure": {
+    "prefix": "figure",
+    "body": [
+      "\\begin{figure}[H]",
+      "  \\centering",
+      "  \\includegraphics[width=$1\\textwidth]{$2}",
+      "  \\caption{$3}",
+      "  \\label{fig:$4}",
+      "\\end{figure}",
+      "$0"
+    ],
+    "description": "Add a figure"
+  },
+  "Inline Math": {
+    "prefix": ["math"],
+    "body": "\\$$1\\$ $0",
+    "description": "Insert inline Math Environment."
+  },
+  "Centered Math": {
+    "prefix": ["cmath", "cmath"],
+    "body": "\\$\\$$1\\$\\$ $0",
+    "description": "Insert centered Math Environment."
+  },
+  "Italic Text": {
+    "prefix": ["it", "*"],
+    "body": "\\textit{$1} $0",
+    "description": "Insert italic text."
+  },
+  "Bold Text": {
+    "prefix": ["bf", "**"],
+    "body": "\\textbf{$1} $0",
+    "description": "Insert bold text."
+  },
+  "Bold Italic Text": {
+    "prefix": ["bfit", "***"],
+    "body": "\\textbf{\\textit{$1}} $0",
+    "description": "Insert bold italic text."
+  },
+  "set font size": {
+    "prefix": "fontsize",
+    "body": "${1|\\Huge,\\huge,\\LARGE,\\Large,\\large,\\normalsize,\\small,\\footnotesize,\\scriptsize,\\tiny|}",
+    "description": "Select a font size"
+  },
+
+  "beta": {
+    "description": "LaTeX beta letter",
+    "prefix": ["@b"],
+    "body": "\\beta"
+  },
+  "chi": {
+    "description": "LaTeX chi letter",
+    "prefix": ["@c"],
+    "body": "\\chi"
+  },
+  "varphi": {
+    "description": "LaTeX varphi letter",
+    "prefix": ["@vf"],
+    "body": "\\varphi"
+  },
+  "delta": {
+    "description": "LaTeX delta letter",
+    "prefix": ["@d"],
+    "body": "\\delta"
+  },
+  "gamma": {
+    "description": "LaTeX gamma letter",
+    "prefix": ["@g"],
+    "body": "\\gamma"
+  },
+  "infty": {
+    "description": "LaTeX infinity symbol",
+    "prefix": ["@inf"],
+    "body": "\\infty"
+  },
+  "zeta": {
+    "description": "LaTeX zeta letter",
+    "prefix": ["@z"],
+    "body": "\\zeta"
+  },
+  "nu": {
+    "description": "LaTeX nu letter",
+    "prefix": ["@n"],
+    "body": "\\nu"
+  },
+  "mu": {
+    "description": "LaTeX mu letter",
+    "prefix": ["@m"],
+    "body": "\\mu"
+  },
+  "epsilon": {
+    "description": "LaTeX epsilon letter",
+    "prefix": ["@e"],
+    "body": "\\epsilon"
+  },
+  "xi": {
+    "description": "LaTeX xi letter",
+    "prefix": ["@x"],
+    "body": "\\xi"
+  },
+  "iota": {
+    "description": "LaTeX iota letter",
+    "prefix": ["@i"],
+    "body": "\\iota"
+  },
+  "rho": {
+    "description": "LaTeX rho letter",
+    "prefix": ["@r"],
+    "body": "\\rho"
+  },
+  "sigma": {
+    "description": "LaTeX sigma letter",
+    "prefix": ["@s"],
+    "body": "\\sigma"
+  },
+  "pi": {
+    "description": "LaTeX pi letter",
+    "prefix": ["@p"],
+    "body": "\\pi"
+  },
+  "vartheta": {
+    "description": "LaTeX vartheta letter",
+    "prefix": ["@vq"],
+    "body": "\\vartheta"
+  },
+  "varepsilon": {
+    "description": "LaTeX varepsilon letter",
+    "prefix": ["@ve"],
+    "body": "\\varepsilon"
+  },
+  "lambda": {
+    "description": "LaTeX lambda letter",
+    "prefix": ["@l"],
+    "body": "\\lambda"
+  },
+  "kappa": {
+    "description": "LaTeX kappa letter",
+    "prefix": ["@k"],
+    "body": "\\kappa"
+  },
+  "eta": {
+    "description": "LaTeX eta letter",
+    "prefix": ["@h"],
+    "body": "\\eta"
+  },
+  "psi": {
+    "description": "LaTeX psi letter",
+    "prefix": ["@y"],
+    "body": "\\psi"
+  },
+  "omega": {
+    "description": "LaTeX omega letter",
+    "prefix": ["@o"],
+    "body": "\\omega"
+  },
+  "upsilon": {
+    "description": "LaTeX upsilon letter",
+    "prefix": ["@u"],
+    "body": "\\upsilon"
+  },
+  "theta": {
+    "description": "LaTeX theta letter",
+    "prefix": ["@q"],
+    "body": "\\theta"
+  },
   "alpha": {
-    "prefix": ["@@a"],
+    "description": "LaTeX alpha letter",
+    "prefix": ["@a"],
     "body": "\\alpha"
+  },
+  "tau": {
+    "description": "LaTeX tau letter",
+    "prefix": ["@t"],
+    "body": "\\tau"
+  },
+  "phi": {
+    "description": "LaTeX phi letter",
+    "prefix": ["@f"],
+    "body": "\\phi"
+  },
+  "wedge": {
+    "description": "LaTeX wedge letter",
+    "prefix": ["@&"],
+    "body": "\\wedge"
+  },
+  "varsigma": {
+    "description": "LaTeX varsigma letter",
+    "prefix": ["@vs"],
+    "body": "\\varsigma"
+  },
+  "Delta": {
+    "description": "LaTeX Delta letter",
+    "prefix": ["@D"],
+    "body": "\\Delta"
+  },
+  "Gamma": {
+    "description": "LaTeX Gamma letter",
+    "prefix": ["@G"],
+    "body": "\\Gamma"
+  },
+  "Xi": {
+    "description": "LaTeX Xi letter",
+    "prefix": ["@X"],
+    "body": "\\Xi"
+  },
+  "Sigma": {
+    "description": "LaTeX Sigma letter",
+    "prefix": ["@S"],
+    "body": "\\Sigma"
+  },
+  "Lambda": {
+    "description": "LaTeX Lambda letter",
+    "prefix": ["@L"],
+    "body": "\\Lambda"
+  },
+  "Psi": {
+    "description": "LaTeX Psi letter",
+    "prefix": ["@Y"],
+    "body": "\\Psi"
+  },
+  "Omega": {
+    "description": "LaTeX Omega letter",
+    "prefix": ["@O"],
+    "body": "\\Omega"
+  },
+  "Upsilon": {
+    "description": "LaTeX Upsilon letter",
+    "prefix": ["@U"],
+    "body": "\\Upsilon"
+  },
+  "Theta": {
+    "description": "LaTeX Theta letter",
+    "prefix": ["@Q"],
+    "body": "\\Theta"
+  },
+  "Phi": {
+    "description": "LaTeX Phi letter",
+    "prefix": ["@F"],
+    "body": "\\Phi"
   }
 }
