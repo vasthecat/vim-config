@@ -110,6 +110,7 @@ vmap <leader>d "+d
 
 " Terminal mode
 tnoremap <leader><ESC> <C-\><C-n>
+au TerminalOpen * setlocal nospell
 
 " Tabs
 nmap <leader>tn :tabnew<CR>
