@@ -8,7 +8,6 @@ set rtp+=$VIMHOME
 call plug#begin("$VIMHOME/plugins")
 Plug 'preservim/nerdcommenter'
 Plug 'itchyny/lightline.vim'
-" Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -17,10 +16,14 @@ Plug 'hrsh7th/vim-vsnip'
 " Languages
 Plug 'prabirshrestha/vim-lsp'
 Plug 'lervag/vimtex'
-Plug 'preservim/vim-markdown'
+Plug 'tikhomirov/vim-glsl'
+" Plug 'preservim/vim-markdown'
 call plug#end()
 
 let mapleader="\<Space>"
+
+" Encodings
+set fileencodings=utf8,cp1251,koi8-r,latin1
 
 " Tab configuration
 set tabstop=4
@@ -61,6 +64,7 @@ if has("gui_running")
     set guioptions-=T  " remove toolbar
     set guioptions-=r  " remove right-hand scroll bar
     set guioptions-=L  " remove left-hand scroll bar
+    set guioptions-=e  " vim looking tabs
     set antialias
     set macligatures
     set guiligatures=!\"#$%&()*+-./:<=>?@[]^_{\|~
@@ -111,6 +115,7 @@ vmap <leader>d "+d
 " Terminal mode
 tnoremap <leader><ESC> <C-\><C-n>
 au TerminalOpen * setlocal nospell
+tnoremap <S-space> <space>
 
 " Tabs
 nmap <leader>tn :tabnew<CR>
@@ -124,6 +129,9 @@ nmap <leader>t. :tabmove +1<CR>
 " netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+
+" Rus
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 "+---------+"
 "| PLUGINS |"
@@ -199,3 +207,18 @@ fun! s:FiletypeJSON()
     setlocal shiftwidth=2
 endfun
 autocmd FileType json call s:FiletypeJSON()
+
+fun! s:FiletypeHaskell()
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+endfun
+autocmd FileType haskell call s:FiletypeHaskell()
+
+fun! s:FiletypeMarkdown()
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+endfun
+autocmd FileType markdown call s:FiletypeMarkdown()
+
