@@ -14,6 +14,14 @@ if len(system('rustup which --toolchain stable rust-analyzer')) != 0
             \ })
 endif
 
+if executable('haskell-language-server-wrapper')
+    au User lsp_setup call lsp#register_server({
+            \ 'name': 'haskell-language-server',
+            \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
+            \ 'allowlist': ['haskell'],
+            \ })
+endif
+
 if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
